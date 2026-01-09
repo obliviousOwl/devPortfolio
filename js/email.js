@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
           text: "Your message has been sent successfully.",
           timer: 3000,
           showConfirmButton: false,
-          position: "top"
+          position: "top",
+		  theme: 'dark'
         });
         form.reset();
       } else {
@@ -43,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
           text: "There was an error. Please try again.",
           timer: 3000,
           showConfirmButton: false,
-          position: "top"
+          position: "top",
+		  theme: 'dark'
         });
       }
     } catch (err) {
@@ -54,7 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         text: "Something went wrong. Please try again.",
         timer: 3000,
         showConfirmButton: false,
-        position: "top"
+        position: "top",
+		theme: 'dark'
       });
     } finally {
       submitButton.disabled = false;
