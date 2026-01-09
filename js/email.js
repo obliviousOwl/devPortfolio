@@ -1,42 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (!window.emailjs) {
-    console.error("EmailJS not loaded");
-    return;
-  }
-
-  emailjs.init("RtOrQEXvjXKklOQ3W");
-
   const form = document.querySelector("#contact-form");
-  if (!form) {
-    console.error("Contact form not found");
-    return;
-  }
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Make reCAPTCHA optional-safe
-    if (typeof grecaptcha !== "undefined") {
-      const recaptcha = grecaptcha.getResponse();
-      if (!recaptcha) {
-        alert("Please verify that you are not a robot.");
-        return;
-      }
-    }
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+      _gotcha: form._gotcha.value // honeypot
+    };
 
-    emailjs
-      .sendForm("service_xba6sls", "template_hs3mwqf", this)
-      .then(() => {
-        alert("Message sent successfully!");
-        form.reset();
+    // Disable button while sending
+    const submitButton = form.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
 
-        if (typeof grecaptcha !== "undefined") {
-          grecaptcha.reset();
-        }
-      })
-      .catch((err) => {
-        console.error("EmailJS error:", err);
-        alert("Something went wrong. Please try again.");
+    try {
+      const response = await fetch("https://formspree.io/f/xgovgyol", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
       });
+
+      if (response.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Message Sent!",
+          text: "Your message has been sent successfully.",
+          timer: 3000,
+          showConfirmButton: false,
+          position: "top"
+        });
+        form.reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "There was an error. Please try again.",
+          timer: 3000,
+          showConfirmButton: false,
+          position: "top"
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong. Please try again.",
+        timer: 3000,
+        showConfirmButton: false,
+        position: "top"
+      });
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send Message";
+    }
   });
 });

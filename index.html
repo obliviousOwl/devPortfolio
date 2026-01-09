@@ -24,14 +24,11 @@
 	<!-- Flowbite -->
 	<script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
 
-	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-	<script src="email.js"></script>
-
-
-
 	<!-- Link your CSS -->
 	<link rel="stylesheet" href="css/styles.css">
+
+	<!-- SweetAlert2 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<!-- Google fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,11 +36,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
 		rel="stylesheet">
 
-	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
 </head>
 
 <body>
+	<div id="top-alert"
+		class="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden px-6 py-3 rounded-lg text-white shadow-lg transition-all duration-300">
+	</div>
 	<nav id="navbar"
 		class="fixed top-0 left-0 w-full bg-gray-900 md:bg-opacity-80 bg-opacity-100 text-white z-50 opacity-0 transition-opacity duration-1000">
 
@@ -408,7 +406,11 @@
 
 				<!-- Contact Form -->
 				<div class="md:w-1/2">
-					<form id="contact-form" class="space-y-4">
+					<div id="form-alert" class="hidden mb-4 px-4 py-3 rounded-lg text-white"></div>
+					<form id="contact-form" method="POST" class="space-y-4">
+						<!-- Honeypot field -->
+						<input type="text" name="_gotcha" class="hidden" />
+
 						<div>
 							<label for="name" class="block text-sm font-medium mb-1">Name</label>
 							<input type="text" name="name" id="name" placeholder="Your name"
@@ -430,25 +432,16 @@
 								required></textarea>
 						</div>
 
-						<!-- Google reCAPTCHA -->
-						<div class="g-recaptcha" data-sitekey="6LfKTUMsAAAAAEQOCq7ecbvehuDNdogErQxwPe5R"></div>
-
 						<button type="submit"
 							class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
 							Send Message
 						</button>
-						<p id="form-status" class="text-sm mt-2 text-green-400"></p>
+						<p id="form-status" class="text-sm mt-2"></p>
 					</form>
 				</div>
 
 			</div>
 		</div>
-
-		<!-- EmailJS & reCAPTCHA -->
-		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</section>
 
 
@@ -468,6 +461,8 @@
 	<script src="js/typed-init.js"></script>
 
 	<script src="js/nav-highlight.js"></script>
+
+	<script src="js/email.js"></script>
 
 
 
