@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jim's Portfolio</title>
+
+	<!-- Tailwind config -->
+	<script src="js/tailwind-config.js"></script>
+
+	<!-- Tailwind CSS CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- GSAP core -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
+	<!-- Optional: ScrollTrigger plugin -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+	<!-- Devicons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+	<!-- Flowbite -->
+	<script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<script src="email.js"></script>
+
+
+
+	<!-- Link your CSS -->
+	<link rel="stylesheet" href="css/styles.css">
+
+	<!-- Google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+</head>
+
+<body>
+	<nav id="navbar"
+		class="fixed top-0 left-0 w-full bg-gray-900 md:bg-opacity-80 bg-opacity-100 text-white z-50 opacity-0 transition-opacity duration-1000">
+
+
+		<div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+			<!-- Logo -->
+			<div class="text-xl font-bold">MyPortfolio</div>
+
+			<!-- Hamburger (hidden on md+) -->
+			<button id="menu-toggle" class="md:hidden focus:outline-none text-2xl" aria-label="Toggle Menu">
+				☰
+			</button>
+
+			<!-- Normal Navbar (visible on md+) -->
+			<ul class="hidden md:flex space-x-6">
+				<li><a href="#home" class="hover:text-[#FF5733] active-link">Home</a></li>
+				<li><a href="#skills" class="hover:text-[#FF5733]">Skills</a></li>
+				<li><a href="#projects" class="hover:text-[#FF5733]">Projects</a></li>
+				<li><a href="#contact" class="hover:text-[#FF5733]">Contact</a></li>
+			</ul>
+		</div>
+
+		<!-- Mobile Sidebar Menu -->
+		<div id="mobile-menu"
+			class="fixed top-0 left-0 h-full w-64 bg-gray-900 transform -translate-x-full transition-transform duration-300 md:hidden z-40">
+			<div class="p-4 flex justify-between items-center border-b border-gray-700">
+				<div class="text-lg font-semibold">Menu</div>
+				<button id="close-menu" class="text-2xl focus:outline-none">✕</button>
+			</div>
+			<ul class="p-4 space-y-4">
+				<li><a href="#home" class="block hover:text-[#FF5733]">Home</a></li>
+				<li><a href="#skills" class="block hover:text-[#FF5733]">Skills</a></li>
+				<li><a href="#projects" class="block hover:text-[#FF5733]">Projects</a></li>
+				<li><a href="#contact" class="block hover:text-[#FF5733]">Contact</a></li>
+			</ul>
+		</div>
+
+		<!-- Dark Overlay -->
+		<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden z-30"></div>
+	</nav>
+
+	<!-- particles.js container -->
+	<section id="home" class="h-screen flex flex-col justify-center items-center text-center text-white relative">
+
+		<div id="particles-js-hero"></div>
+		<div
+			class="hero-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
+			<h1 class="text-5xl font-bold mb-4">
+				Hey there, I am <span class="text-[#FF5733]">Jim</span>
+			</h1>
+
+			<!-- Second line (partial typed) -->
+			<h2 class="text-2xl font-light">
+				I turn ideas into <span class="typed-text text-[#FF5733]"></span>
+			</h2>
+
+			<div class="mt-6 opacity-0 transition-opacity duration-1000" id="cta-button">
+				<a href="#projects"
+					class="bg-[#FF5733] hover:bg-[#e64e2b] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+					View My Work
+				</a>
+			</div>
+		</div>
+	</section>
+
+
+	<div id="particles-js-bg" class="fixed inset-0 -z-10"></div>
+	<!-- Projects Section -->
+
+
+
+	<section id="skills"
+		class="skills-section relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 py-20 overflow-hidden">
+
+		<!-- Skills Grid (left on desktop) -->
+		<div class="skills-left w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
+			<div class="skills-grid grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-3 w-full">
+
+				<!-- Frontend -->
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-html5-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">HTML</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-css3-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">CSS</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-javascript-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">JavaScript</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-react-original text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">React</span>
+				</div>
+
+				<!-- Frontend Frameworks -->
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-bootstrap-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Bootstrap</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-tailwindcss-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Tailwind</span>
+				</div>
+
+				<!-- Backend -->
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-nodejs-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Node.js</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-express-original text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">ExpressJS</span>
+				</div>
+
+				<!-- Databases -->
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-mongodb-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">MongoDB</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-mysql-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">SQL</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-firebase-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Firebase</span>
+				</div>
+
+				<!-- Backend Frameworks -->
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-php-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">PHP</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-laravel-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Laravel</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-python-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Python</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-django-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Django</span>
+				</div>
+
+				<!-- Tools & Others -->
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-git-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Git</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-godot-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Godot</span>
+				</div>
+				<div class="skill-item flex flex-col items-center justify-center p-1 sm:p-2 md:p-4">
+					<i class="devicon-socketio-plain text-white text-3xl sm:text-4xl md:text-5xl mb-1 sm:mb-2"></i>
+					<span
+						class="text-white font-semibold text-[0px] sm:text-xs md:text-base hidden sm:block">Socket.io</span>
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+		<!-- About Me Text (right on desktop) -->
+		<div class="skills-right w-full md:w-1/2 flex flex-col justify-start text-center md:text-left md:pl-10">
+
+			<!-- Full About Me for desktop -->
+			<div class="hidden md:block">
+				<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+					About <span class="text-[#FF5733]">Me</span>
+				</h2>
+				<p class="text-white text-base md:text-lg leading-relaxed mb-4">
+					I'm a passionate full-stack developer with hands-on experience in building real-time web apps and
+					multiplayer games.
+					I enjoy solving complex problems with clean and efficient code, and I love bringing ideas to life
+					through interactive web experiences.
+				</p>
+				<p class="text-white text-base md:text-lg leading-relaxed mb-4">
+					I specialize in JavaScript, Node.js, React, and Python, and I have experience working with databases
+					such as MongoDB, MySQL, and Firebase.
+					I also enjoy experimenting with game development frameworks like Godot, creating engaging
+					multiplayer experiences.
+				</p>
+				<p class="text-white text-base md:text-lg leading-relaxed">
+					I thrive in collaborative environments, continuously learning and improving my skills, and I am
+					always excited to take on new challenges and contribute to meaningful projects.
+				</p>
+			</div>
+
+			<!-- Short About Me for mobile -->
+			<div class="block md:hidden">
+				<h2 class="text-2xl font-bold text-white mb-2">
+					About <span class="text-[#FF5733]">Me</span>
+				</h2>
+				<p class="text-white text-sm leading-relaxed">
+					Full-stack developer passionate about building web apps and multiplayer games. Skilled in
+					JavaScript, Node.js, React, Python, MongoDB, MySQL & Firebase. I also enjoy experimenting with game
+					development frameworks like Godot.
+				</p>
+			</div>
+
+		</div>
+
+
+
+	</section>
+
+
+	<section id="projects" class="py-24 bg-neutral-950 text-white">
+		<div class="max-w-6xl mx-auto px-6">
+
+			<!-- Section Header -->
+			<div class="mb-12">
+				<h2 class="text-4xl font-bold mb-2">Projects</h2>
+				<p class="text-neutral-400">
+					Selected works and experiments
+				</p>
+			</div>
+
+			<!-- Carousel -->
+			<div id="project-carousel" class="relative w-full overflow-hidden rounded-2xl aspect-[1902/918]"
+				data-carousel="slide" data-carousel-interval="5000">
+
+				<!-- Slides -->
+				<div class="relative w-full h-full">
+
+					<!-- Slide 1 -->
+					<a href="https://scavengers-arena.web.app/" target="_blank" class="block">
+						<div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+							<img src="images/scavengers_arena.png" class="absolute block w-full h-full object-cover"
+								alt="Project 1" />
+							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
+								<div>
+									<h3 class="text-xl font-semibold">Scavengers Arena</h3>
+									<p class="text-sm text-neutral-300">Godot + Firebase + Socket.io</p>
+								</div>
+							</div>
+						</div>
+					</a>
+
+					<!-- Slide 2 -->
+					<a href="https://obliviousowl.github.io/staticWebPage-02/" target="_blank" class="block">
+						<div class="hidden duration-700 ease-in-out" data-carousel-item>
+							<img src="images/staticPageDemo.png" class="absolute block w-full h-full object-cover"
+								alt="Project 2" />
+							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
+								<div>
+									<h3 class="text-xl font-semibold">Codecraft Academy</h3>
+									<p class="text-sm text-neutral-300">HTML + Bootstrap CSS</p>
+								</div>
+							</div>
+						</div>
+					</a>
+
+					<!-- Slide 3 -->
+					<a href="https://story-sphere-blog-client.vercel.app/" target="_blank" class="block">
+						<div class="hidden duration-700 ease-in-out" data-carousel-item>
+							<img src="images/storysphere.png" class="absolute block w-full h-full object-cover"
+								alt="Project 3" />
+							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
+								<div>
+									<h3 class="text-xl font-semibold">Story Sphere Blog</h3>
+									<p class="text-sm text-neutral-300">MongoDB + reactJS</p>
+								</div>
+							</div>
+						</div>
+					</a>
+
+					<!-- Slide 4 -->
+					<a href="https://vegifruitful-ecommerce.vercel.app/" target="_blank" class="block">
+						<div class="hidden duration-700 ease-in-out" data-carousel-item>
+							<img src="images/vegifruitful.png" class="absolute block w-full h-full object-cover"
+								alt="Project 4" />
+							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
+								<div>
+									<h3 class="text-xl font-semibold">vegifruitful</h3>
+									<p class="text-sm text-neutral-300">E-commerce website</p>
+								</div>
+							</div>
+						</div>
+					</a>
+
+				</div>
+
+				<!-- Controls -->
+				<button type="button"
+					class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-3 rounded-full"
+					data-carousel-prev>
+					‹
+				</button>
+
+				<button type="button"
+					class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-3 rounded-full"
+					data-carousel-next>
+					›
+				</button>
+
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+	<!-- Contact Section -->
+	<section id="contact" class="py-24 bg-neutral-950 text-white">
+		<div class="max-w-4xl mx-auto px-6">
+
+			<!-- Section Header -->
+			<div class="mb-12 text-center">
+				<h2 class="text-4xl font-bold mb-2">Contact</h2>
+				<p class="text-neutral-400">Get in touch for collaborations or just to say hi!</p>
+			</div>
+
+			<!-- Contact Content -->
+			<div class="flex flex-col md:flex-row md:space-x-12 gap-12">
+
+				<!-- Contact Info -->
+				<div class="md:w-1/2 space-y-6">
+					<div>
+						<h3 class="text-xl font-semibold mb-1">Email</h3>
+						<a href="mailto:it.jim16@gmail.com"
+							class="text-neutral-300 hover:text-[#FF5733] transition-colors">it.jim16@gmail.com</a>
+					</div>
+
+					<div>
+						<h3 class="text-xl font-semibold mb-1">LinkedIn</h3>
+						<a href="https://www.linkedin.com/in/dev-jim-s0530/" target="_blank"
+							class="text-neutral-300 hover:text-[#FF5733] transition-colors">https://www.linkedin.com/in/dev-jim-s0530/</a>
+					</div>
+
+					<div>
+						<h3 class="text-xl font-semibold mb-1">GitHub</h3>
+						<a href="https://github.com/obliviousOwl" target="_blank"
+							class="text-neutral-300 hover:text-[#FF5733] transition-colors">https://github.com/obliviousOwl</a>
+					</div>
+				</div>
+
+				<!-- Contact Form -->
+				<div class="md:w-1/2">
+					<form id="contact-form" class="space-y-4">
+						<div>
+							<label for="name" class="block text-sm font-medium mb-1">Name</label>
+							<input type="text" name="name" id="name" placeholder="Your name"
+								class="w-full rounded-lg bg-neutral-800 text-white p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+								required />
+						</div>
+
+						<div>
+							<label for="email" class="block text-sm font-medium mb-1">Email</label>
+							<input type="email" name="email" id="email" placeholder="you@example.com"
+								class="w-full rounded-lg bg-neutral-800 text-white p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+								required />
+						</div>
+
+						<div>
+							<label for="message" class="block text-sm font-medium mb-1">Message</label>
+							<textarea name="message" id="message" placeholder="Your message..."
+								class="w-full rounded-lg bg-neutral-800 text-white p-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+								required></textarea>
+						</div>
+
+						<!-- Google reCAPTCHA -->
+						<div class="g-recaptcha" data-sitekey="6LfKTUMsAAAAAEQOCq7ecbvehuDNdogErQxwPe5R"></div>
+
+						<button type="submit"
+							class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+							Send Message
+						</button>
+						<p id="form-status" class="text-sm mt-2 text-green-400"></p>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- EmailJS & reCAPTCHA -->
+		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	</section>
+
+
+
+
+
+	<!-- particles.js library -->
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+	<!-- Your custom particles configuration -->
+	<script src="js/particles.js"></script>
+
+	<script src="js/gsap.js"></script>
+
+	<!-- Typed.js CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+	<script src="js/typed-init.js"></script>
+
+	<script src="js/nav-highlight.js"></script>
+
+
+
+</body>
+
+</html>
