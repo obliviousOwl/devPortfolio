@@ -24,8 +24,7 @@
 	<!-- Devicons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-	<!-- Flowbite -->
-	<script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+
 
 	<!-- Link your CSS -->
 	<link rel="stylesheet" href="css/styles.css">
@@ -292,8 +291,9 @@
 				<div class="relative w-full h-full">
 
 					<!-- Slide 1 -->
-					<a href="https://scavengers-arena.web.app/" target="_blank" class="block">
-						<div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+
+					<div class="hidden duration-700 ease-in-out" data-carousel-item>
+						<a href="https://scavengers-arena.web.app/" target="_blank" class="block">
 							<img src="images/scavengers_arena.png" class="absolute block w-full h-full object-cover"
 								alt="Project 1" />
 							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
@@ -302,12 +302,14 @@
 									<p class="text-sm text-neutral-300">Godot + Firebase + Socket.io</p>
 								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					</div>
+
 
 					<!-- Slide 2 -->
-					<a href="https://obliviousowl.github.io/staticWebPage-02/" target="_blank" class="block">
-						<div class="hidden duration-700 ease-in-out" data-carousel-item>
+
+					<div class="hidden duration-700 ease-in-out" data-carousel-item>
+						<a href="https://obliviousowl.github.io/staticWebPage-02/" target="_blank" class="block">
 							<img src="images/staticPageDemo.png" class="absolute block w-full h-full object-cover"
 								alt="Project 2" />
 							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
@@ -316,12 +318,14 @@
 									<p class="text-sm text-neutral-300">HTML + Bootstrap CSS</p>
 								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					</div>
+
 
 					<!-- Slide 3 -->
-					<a href="https://story-sphere-blog-client.vercel.app/" target="_blank" class="block">
-						<div class="hidden duration-700 ease-in-out" data-carousel-item>
+
+					<div class="hidden duration-700 ease-in-out" data-carousel-item>
+						<a href="https://story-sphere-blog-client.vercel.app/" target="_blank" class="block">
 							<img src="images/storysphere.png" class="absolute block w-full h-full object-cover"
 								alt="Project 3" />
 							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
@@ -330,12 +334,14 @@
 									<p class="text-sm text-neutral-300">MongoDB + reactJS</p>
 								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					</div>
+
 
 					<!-- Slide 4 -->
-					<a href="https://vegifruitful-ecommerce.vercel.app/" target="_blank" class="block">
-						<div class="hidden duration-700 ease-in-out" data-carousel-item>
+
+					<div class="hidden duration-700 ease-in-out" data-carousel-item>
+						<a href="https://vegifruitful-ecommerce.vercel.app/" target="_blank" class="block">
 							<img src="images/vegifruitful.png" class="absolute block w-full h-full object-cover"
 								alt="Project 4" />
 							<div class="absolute inset-0 bg-black/50 flex items-end p-6">
@@ -344,23 +350,41 @@
 									<p class="text-sm text-neutral-300">E-commerce website</p>
 								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					</div>
+
 
 				</div>
 
 				<!-- Controls -->
 				<button type="button"
-					class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-3 rounded-full"
+					class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
 					data-carousel-prev>
-					‹
+					<span
+						class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#FF5733]/20 group-hover:bg-[#FF5733]/50 group-focus:ring-4 group-focus:ring-[#FF5733]/70 focus:outline-none">
+						<svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true"
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="m15 19-7-7 7-7" />
+						</svg>
+						<span class="sr-only">Previous</span>
+					</span>
 				</button>
 
 				<button type="button"
-					class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/40 hover:bg-black/60 p-3 rounded-full"
+					class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
 					data-carousel-next>
-					›
+					<span
+						class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#FF5733]/20 group-hover:bg-[#FF5733]/50 group-focus:ring-4 group-focus:ring-[#FF5733]/70 focus:outline-none">
+						<svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true"
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="m9 5 7 7-7 7" />
+						</svg>
+						<span class="sr-only">Next</span>
+					</span>
 				</button>
+
 
 			</div>
 		</div>
@@ -465,8 +489,8 @@
 
 	<script src="js/nav-highlight.js"></script>
 
-	<script src="js/email.js"></script>
-
+	<!-- Flowbite -->
+	<script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
 
 
 	<footer class="bg-neutral-950 text-white py-10">
